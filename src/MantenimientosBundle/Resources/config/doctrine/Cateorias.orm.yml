@@ -1,0 +1,22 @@
+MantenimientosBundle\Entity\Cateorias:
+    type: entity
+    table: cateorias
+    id:
+        codigoCategoria:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: codigo_categoria
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombreCategoria:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: nombre_categoria
+    lifecycleCallbacks: {  }

@@ -1,0 +1,22 @@
+MantenimientosBundle\Entity\Rubros:
+    type: entity
+    table: rubros
+    id:
+        codigoRubro:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: codigo_rubro
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombreRubro:
+            type: string
+            nullable: false
+            length: 100
+            options:
+                fixed: false
+            column: nombre_rubro
+    lifecycleCallbacks: {  }

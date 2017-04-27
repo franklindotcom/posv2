@@ -1,0 +1,88 @@
+{%extends '::frontend.html.twig'%}
+{% block body %}
+
+    {{ include('navfixed.html.twig')}}
+    
+    <div class="container-fluid">
+      <div class="row-fluid">
+	<div class="span2">
+          <div class="well sidebar-nav">
+              <ul class="nav nav-list">
+                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
+			<li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
+			<li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
+                        <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
+                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+			<li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+			<li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+			<li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <br><br><br>
+			<li>
+			 <div class="hero-unit-clock">
+		
+			<form name="clock">
+			<font color="white">Hora: <br></font>&nbsp;<input style="width:150px;" type="submit" class="trans" name="face" value="">
+			</form>
+			  </div>
+			</li>
+             </ul>     
+          </div><!--/.well -->
+        </div><!--/span-->
+	<div class="span10">
+	<div class="contentheader">
+			<i class="icon-group"></i> Proveedores
+			</div>
+			<ul class="breadcrumb">
+			<li><a href="">Mantenimiento</a></li> /
+			<li class="active">Proveedores</li>
+			</ul>
+        <div style="margin-top: -19px; margin-bottom: 21px;">
+            <h2>Listado de Proveedores</h2>
+        </div>
+
+<div style="margin-top: -19px; margin-bottom: 21px;">
+			<div style="text-align:center;">
+			Numero Total de Proveedores: <font color="green" style="font:bold 22px 'Aleo';"><?php echo $rowcount;?></font>
+			</div>
+</div>
+<input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Proveedor..." autocomplete="off" />
+<a rel="facebox" href=""><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Proveedor</button></a><br><br>
+
+<table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
+	<thead>
+		<tr>
+			<th> Provvedor </th>
+			<th> Persona de Contacto </th>
+			<th> Direccion </th>
+			<th> Nro Contacto </th>
+			<th> Notas </th>
+			<th width="120"> Accion </th>
+		</tr>
+	</thead>
+	<tbody>
+		
+			<tr class="record">
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><a rel="facebox" href=""><button class="btn btn-warning btn-mini"><i class="icon-edit"></i> Editar </button></a>
+			<a href="#" id="" class="delbutton" title="Click para borrar"><button class="btn btn-danger btn-mini"><i class="icon-trash"></i> Borrar</button></a></td>
+			</tr>
+			
+		
+	</tbody>
+</table>
+
+
+<div class="clearfix"></div>
+
+</div>
+</div>
+</div>
+{% endblock %}
+

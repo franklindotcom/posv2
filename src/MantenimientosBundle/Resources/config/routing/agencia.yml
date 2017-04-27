@@ -1,0 +1,24 @@
+agencia_index:
+    path:     /list
+    defaults: { _controller: "MantenimientosBundle:Agencia:index" }
+    methods:  GET
+
+agencia_show:
+    path:     /{id}/show
+    defaults: { _controller: "MantenimientosBundle:Agencia:show" }
+    methods:  GET
+
+agencia_new:
+    path:     /new
+    defaults: { _controller: "MantenimientosBundle:Agencia:new" }
+    methods:  [GET, POST]
+
+agencia_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "MantenimientosBundle:Agencia:edit" }
+    methods:  [GET, POST]
+
+agencia_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "MantenimientosBundle:Agencia:delete" }
+    methods:  DELETE

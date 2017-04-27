@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Lisa de Agencias</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Codigoagencia</th>
+                <th>Nombreagencia</th>
+                <th>Telefono</th>
+                <th>Descripcion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for agencium in agencias %}
+            <tr>
+                <td><a href="{{ path('agencia_show', { 'id': agencium.codigoAgencia }) }}">{{ agencium.codigoAgencia }}</a></td>
+                <td>{{ agencium.nombreAgencia }}</td>
+                <td>{{ agencium.telefono }}</td>
+                <td>{{ agencium.descripcion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('agencia_show', { 'id': agencium.codigoAgencia }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('agencia_edit', { 'id': agencium.codigoAgencia }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('agencia_new') }}">Create a new agencium</a>
+        </li>
+    </ul>
+{% endblock %}

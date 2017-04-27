@@ -1,0 +1,36 @@
+mantenimientos_agencia:
+    resource: "@MantenimientosBundle/Resources/config/routing/agencia.yml"
+    prefix:   /agencia
+
+mantenimientos_homepage:
+    path:     /
+    defaults: { _controller: MantenimientosBundle:Default:index }
+
+mantenimientos:
+    path:     /mantenimientos
+    defaults: { _controller: MantenimientosBundle:Default:mantenimientos }
+    
+
+
+categorias:
+    path:     /categorias
+    defaults: { _controller: MantenimientosBundle:Default:listacategorias }
+    
+    
+agencias:
+    path:     /agencias
+    defaults: { _controller: MantenimientosBundle:Default:listaagencias }
+
+agencia_index:
+    path:     /list
+    defaults: { _controller: "MantenimientosBundle:Agencia:index" }
+    methods:  GET
+    
+    
+vendedores:
+    path:     /vendedores
+    defaults: { _controller: MantenimientosBundle:Default:listavendedores }
+    
+proveedores:
+    path:     /proveedores
+    defaults: { _controller: MantenimientosBundle:Default:listaproveedores }

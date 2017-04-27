@@ -1,0 +1,7 @@
+tablero_homepage:
+    path:     /tab
+    defaults: { _controller: TableroBundle:Default:index }
+    
+mantenimientos:
+    path:     /mantenimientos
+    defaults: { _controller: MantenimientosBundle:Default:mantenimientos }

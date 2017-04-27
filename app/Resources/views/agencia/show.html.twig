@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Agencium</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Codigoagencia</th>
+                <td>{{ agencium.codigoAgencia }}</td>
+            </tr>
+            <tr>
+                <th>Nombreagencia</th>
+                <td>{{ agencium.nombreAgencia }}</td>
+            </tr>
+            <tr>
+                <th>Telefono</th>
+                <td>{{ agencium.telefono }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ agencium.descripcion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('agencia_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('agencia_edit', { 'id': agencium.codigoAgencia }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,23 @@
+mantenimientos:
+    resource: "@MantenimientosBundle/Resources/config/routing.yml"
+    prefix:   /
+
+categorias:
+    resource: "@CategoriasBundle/Resources/config/routing.yml"
+    prefix:   /
+
+home:
+    resource: "@HomeBundle/Resources/config/routing.yml"
+    prefix:   /
+
+login:
+    resource: "@LoginBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tablero:
+    resource: "@TableroBundle/Resources/config/routing.yml"
+    prefix:   /tablero
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
