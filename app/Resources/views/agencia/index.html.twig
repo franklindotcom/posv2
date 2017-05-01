@@ -1,43 +1,84 @@
-{% extends 'base.html.twig' %}
-
+{%extends '::frontend.html.twig'%}
 {% block body %}
-    <h1>Lisa de Agencias</h1>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Codigoagencia</th>
-                <th>Nombreagencia</th>
-                <th>Telefono</th>
-                <th>Descripcion</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for agencium in agencias %}
-            <tr>
-                <td><a href="{{ path('agencia_show', { 'id': agencium.codigoAgencia }) }}">{{ agencium.codigoAgencia }}</a></td>
-                <td>{{ agencium.nombreAgencia }}</td>
-                <td>{{ agencium.telefono }}</td>
-                <td>{{ agencium.descripcion }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('agencia_show', { 'id': agencium.codigoAgencia }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('agencia_edit', { 'id': agencium.codigoAgencia }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {{ include('navfixed.html.twig')}}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span2">
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li><a href="#"><i class="icon-dashboard icon-2x"></i> Tablero</a></li> 
+                        <li><a href=""><i class="icon-shopping-cart icon-large"></i> Ventas <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>  </li>             
+                        <li><a href=""><i class="icon-list-alt icon-large"></i> Productos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>
+                        <li><a href=""><i class="icon-hand-up icon-large"></i> Movimientos <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                     </li>                  
+                        <li><a href=""><i class="icon-table icon-large"></i> Inventario de Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <li class="active"><a href="{{path('mantenimientos')}}"><i class="icon-cogs icon-large"></i> Mantenimientos<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href=""><i class="icon-money icon-large"></i> Compras <div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Reporte Ventas<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i> Ventas por Vendedor<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                                    </li>
+                        <li><a href="" ><i class="icon-bar-chart icon-large"></i>Ventas por Producto<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <li><a href=""><i class="icon-bar-chart icon-large"></i>Ventas por Categoria<div class="pull-right"><i class="icon-circle-arrow-right icon-large"></i></div></a>                </li>
+                        <br><br><br>		
 
-    <ul>
-        <li>
-            <a href="{{ path('agencia_new') }}">Create a new agencium</a>
-        </li>
-    </ul>
-{% endblock %}
+                    </ul>                               
+                </div><!--/.well -->
+            </div><!--/span-->
+
+            <div class="span10">
+                <div class="contentheader">
+                    <i class="icon-building"></i> Agencias
+                </div>
+                <ul class="breadcrumb">
+                    <li><a href="">Mantenimientos</a></li> /
+                    <li class="active">Listado de Agencias</li>
+                </ul>
+
+
+                <div id="maintable">
+
+                    <input type="text" name="filter" style="height:35px; margin-top: -1px;" value="" id="filter" placeholder="Buscar Agencia..." autocomplete="off" />
+                    <!--<a rel="facebox" href="movements_enc.php?invoice=<?php echo $finalcode ?>"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Movimiento</button></a><br><br> -->
+                    <a rel="facebox" href="{{ path('agencia_new') }}"><Button type="submit" class="btn btn-info" style="float:right; width:230px; height:35px;" /><i class="icon-plus-sign icon-large"></i> Agregar Categoria</button></a><br><br>
+                    <table class="table table-bordered" id="resultTable" data-responsive="table" style="text-align: left;">
+                        <thead>
+                            <tr>
+                                <th width="5%"> Codigo agencia </th>
+                                <th width="5%"> Nombre agencia </th>
+                                <th width="8%"> Telefono </th>
+                                <th width="8%"> Descripcion </th>
+                                <th width="5%"> Acciones</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for agencium in agencias %}
+                                <tr>
+                                    <td><a href="{{ path('agencia_show', { 'id': agencium.codigoAgencia }) }}">{{ agencium.codigoAgencia }}</a></td>
+                                    <td>{{ agencium.nombreAgencia }}</td>
+                                    <td>{{ agencium.telefono }}</td>
+                                    <td>{{ agencium.descripcion }}</td>
+                                    <td>
+                                        <ul>
+                                            <li>
+                                                <a href="{{ path('agencia_show', { 'id': agencium.codigoAgencia }) }}">show</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ path('agencia_edit', { 'id': agencium.codigoAgencia }) }}">edit</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                   <!-- <ul>
+                        <li>
+                            <a href="{{ path('agencia_new') }}">Crear nueva agencia</a>
+                        </li>
+                    </ul>-->
+                </div>
+            </div> 
+        </div>
+    {% endblock %}

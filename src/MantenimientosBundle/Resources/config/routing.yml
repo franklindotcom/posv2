@@ -9,8 +9,6 @@ mantenimientos_homepage:
 mantenimientos:
     path:     /mantenimientos
     defaults: { _controller: MantenimientosBundle:Default:mantenimientos }
-    
-
 
 categorias:
     path:     /categorias
